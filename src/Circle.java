@@ -1,3 +1,7 @@
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.Scanner;
+
 /**
  *
  * FIRST, COMPLETE Shape interface
@@ -6,13 +10,19 @@
  */
 
 //implement Shape interface and provide abstract method implementation
-public class Circle{
+public class Circle implements Shape{
+
+    static {
+        System.out.println("Input radius for circle");
+    }
 
     /*
     Define an instance variable called as pi and give initial value as 3.14
     Instance variable must be private, static and final
     double pi
      */
+
+    private static final double pi = 3.14;
 
 
 
@@ -23,20 +33,39 @@ public class Circle{
     double radius
      */
 
+    private double radius;
 
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
 
     /*
-    Override area and perimeter methods here
-    REMEMBER:
-    Area of a circle can be found as => π * r * r
-    Basically it is => pi * radius * radius
+        Override area and perimeter methods here
+        REMEMBER:
+        Area of a circle can be found as => π * r * r
+        Basically it is => pi * radius * radius
 
-    Perimeter of a circle can be found as => 2 * π * r
-    Basically it is => 2 * pi * radius
-    */
+        Perimeter of a circle can be found as => 2 * π * r
+        Basically it is => 2 * pi * radius
+        */
+    @Override
+    public double area() {
+        return pi * radius * radius;
+    }
 
+    @Override
+    public double perimeter() {
+        return 2 * pi * radius;
+    }
 
 
     //Override toString() method here
 
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                '}';
+    }
 }
